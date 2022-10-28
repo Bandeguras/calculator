@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+
+<h1>Calculator</h1>
+
+    <form action="/" method="post">
+    {% csrf_token %}
+
+
+    First Number: <input type="number" name="first" style="border: solid 2px black" required ><br/><br/>
+    Second Number: <input type="number" name="second" style="border: solid 2px black" required><br/>
+    <div style="margin: 20px 100px">
+    <input type="radio" name="method" value="+" class="method">add<br/>
+    <input type="radio" name="method" value="-" class="method">subtract<br/>
+    <input type="radio" name="method" value="*" class="method">multiply<br/>
+    <input type="radio" name="method" value="/" class="method">divide<br/><br/>
+
+    <input type="submit" value="Calculate" style="border: solid 2px black"/>
+    </div>
+
+</form>
+     Result: {{ first }} {{ method }} {{ second }} = {{ result }}
+
+</body>
+</html>
